@@ -24,7 +24,6 @@ export class GuardianService {
         'city',
         'country',
         'website',
-        'identityCommitment',
       ],
     });
   }

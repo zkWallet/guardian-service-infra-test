@@ -116,12 +116,54 @@ export class PublicGuardianDto {
 
   @ApiProperty()
   website: string;
-
-  @ApiProperty()
-  identityCommitment: string;
 }
 
 export class PrivateGuardianDTO {
   @ApiProperty()
+  registrationNumber: string;
+
+  @ApiProperty()
+  displayName: string;
+
+  @ApiProperty()
+  description: string;
+
+  @ApiProperty()
+  wallet: string;
+
+  @ApiProperty()
+  address?: string;
+
+  @ApiProperty()
+  city: string;
+
+  @ApiProperty()
+  state: string;
+
+  @ApiProperty()
+  zip: string;
+
+  @ApiProperty()
+  country: string;
+
+  @ApiProperty()
+  email: string;
+
+  @ApiProperty()
+  phonenumber: string;
+
+  @ApiProperty()
+  website: string;
+
+  @ApiProperty()
   identityCommitment: string;
+
+  @ApiProperty()
+  isApproved: boolean;
+
+  @ApiProperty()
+  creationAt: Date;
+
+  @ApiProperty()
+  updatedAt: Date;
 }
