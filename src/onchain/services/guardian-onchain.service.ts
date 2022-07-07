@@ -37,6 +37,7 @@ export class GuardianOnchainService {
     walletAddress: string,
     chain?: ChainType,
   ): Contract | IGuardianFacet {
+    console.log('GuardianOnchainService _getGuardianFacet chain', chain);
     return this.ethersService.getGuardianFacet(walletAddress, chain);
   }
 }

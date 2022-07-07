@@ -22,6 +22,13 @@ export class EthersService {
 
   getGuardianFacet(walletAddress: string, chain?: ChainType): IGuardianFacet {
     const provider = this.getProvider(chain);
-    return GuardianFacet__factory.connect(walletAddress, provider);
+
+    const guardianFacet: IGuardianFacet = GuardianFacet__factory.connect(
+      walletAddress,
+      provider,
+    );
+
+    console.log('getGuardianFacet', guardianFacet);
+    return guardianFacet;
   }
 }
