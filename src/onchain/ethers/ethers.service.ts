@@ -28,7 +28,6 @@ export class EthersService {
       provider,
     );
 
-    console.log('getGuardianFacet', guardianFacet);
     return guardianFacet;
   }
 }
