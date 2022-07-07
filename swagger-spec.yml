@@ -52,6 +52,13 @@ paths:
       responses:
         "200":
           description: ""
+  /api/guardian-onchain:
+    get:
+      operationId: GuardianOnchainController_getGuardian
+      parameters: []
+      responses:
+        "200":
+          description: ""
 info:
   title: guardian-service
   description: Resource Server

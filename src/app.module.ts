@@ -10,6 +10,7 @@ import { Account } from './account/models/account.model';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { AccountModule } from './account/account.module';
+import { OnchainModule } from './onchain/onchain.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { AccountModule } from './account/account.module';
     AuthModule,
     UsersModule,
     AccountModule,
+    OnchainModule,
   ],
   controllers: [AppController],
   providers: [AppService],
