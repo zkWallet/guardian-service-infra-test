@@ -52,19 +52,6 @@ paths:
       responses:
         "200":
           description: ""
-  /api/account:
-    post:
-      operationId: AccountController_addAccount
-      parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/CreateAccountDto"
-      responses:
-        "201":
-          description: ""
   /api/guardians-onchain:
     get:
       operationId: GuardianOnchainController_getGuardian
@@ -129,13 +116,3 @@ components:
         - phonenumber
         - website
         - identityCommitment
-    CreateAccountDto:
-      type: object
-      properties:
-        username:
-          type: string
-        password:
-          type: string
-      required:
-        - username
-        - password
