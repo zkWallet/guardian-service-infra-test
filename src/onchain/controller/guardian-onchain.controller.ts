@@ -1,10 +1,10 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards } from '@nestjs/common';
 import { BigNumberish } from 'ethers';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { GuardianOnchainService } from 'src/onchain/services/guardian-onchain.service';
-import { Guardian } from 'src/chain/types';
+import { ChainType, Guardian } from 'src/chain/types';
 
-@Controller('guardian-onchain')
+@Controller('guardians-onchain')
 export class GuardianOnchainController {
   constructor(
     private readonly guardianOnchainService: GuardianOnchainService,
@@ -13,21 +13,28 @@ export class GuardianOnchainController {
   @UseGuards(JwtAuthGuard)
   @Get()
   async getGuardians(
-    walletAddress: string,
-    includePendingAddition: boolean,
+    @Param('walletAddress') walletAddress: string,
+    @Param('includePendingAddition') includePendingAddition: boolean,
+    @Param('chain') chain?: ChainType,
   ): Promise<Guardian[]> {
     return this.guardianOnchainService.getGuardians(
       walletAddress,
       includePendingAddition,
+      chain,
     );
   }
 
   @UseGuards(JwtAuthGuard)
   @Get()
   async getGuardian(
-    walletAddress: string,
-    hashId: BigNumberish,
+    @Param('walletAddress') walletAddress: string,
+    @Param('hashId') hashId: BigNumberish,
+    @Param('chain') chain?: ChainType,
   ): Promise<Guardian> {
-    return this.guardianOnchainService.getGuardian(walletAddress, hashId);
+    return this.guardianOnchainService.getGuardian(
+      walletAddress,
+      hashId,
+      chain,
+    );
   }
 }
